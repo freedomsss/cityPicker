@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+<label>ss</label>
+<label>ww</label>
+<input type="button" name="" onclick="console.log(event);" value="clickMe">
+<script type="text/javascript">
+	{var person=new Object();
+		person.name="Nicholas";
+		console.log(person.name);
+		var personTwo=person;
+		personTwo.age=27;
+		console.log(personTwo.name);
+		console.log(person.age);
+		console.log(personTwo.age);
+		console.log("******************************************");
+		function addTen(num) {
+			num += 10;
+			return num;
+		}
+		var count = 20;
+		var result=addTen(count);
+		console.log(count);
+		//count和num互相不认识，count只是作为参数传进去，count本身并没有改变
+		console.log(result);
+		console.log("******************************************");
+		console.log(person instanceof Object);//检测引用类型
+		console.log("******************************************");
+		var color = "blue";
+		function changeColor(){
+			if(!color === 'blue'){
+				color = 'red';
+			}else{
+				color = 'blue';
+			}
+		}
+		changeColor();
+		console.log('color is now '+color);
+		var colors = ["red", "blue", "green"];
+		colors[colors.length] = "black";
+		colors[colors.length] = "brown";
+		console.log(colors);
+		console.log(colors instanceof Array);//检测引用类型
+		console.log(colors.toString());
+		console.log(colors.valueOf());
+		console.log(colors.toLocaleString());
+		console.log(colors.join(' @ '));
+		colors.push('2222');//尾部添加
+		console.log(colors);
+		colors.shift();//头部移除
+		console.log(colors);
+		colors.unshift('111');//头部添加
+		console.log(colors);
+		colors.pop();//尾部删除
+		console.log(colors);
+		var values=[1,2,3,4,5];
+		values.reverse();
+		console.log(values);
+		function compare(value1, value2) {
+	    if (value1 < value2) {
+		        return 1;
+			} else if (value1 > value2) {
+			    return -1;
+			} else {
+				return 0; 
+			}
+		}
+		values.sort(compare);//降序
+		console.log(values);	
+	    function compare(value1, value2){
+	        return value2 - value1;
+		}//改写compare函数
+		console.log(colors);
+		var colors2=colors.slice(1);
+		console.log(colors2);
+		var colors3=colors.slice(0,2);
+		console.log(colors3);
+		var numbers=[1,2,3,4,5,6];
+		var everyResult=numbers.every(function(item,index,array){
+			return (item>2)
+		})
+		//对数组中的每一项运行给定的函数，如果函数对每一项都返回true，则返回ture
+		console.log('everyResult');
+		console.log(everyResult);
+		var someResult=numbers.some(function(item,index,array){
+			return (item>2)
+		})
+		//对数组中的每一项运行给定的函数，如果该函数对任一项返回true，则返回true
+		console.log('someResult');
+		console.log(someResult);
+		var filterResult=numbers.filter(function(item,index,array){
+			return (item>2)
+		})
+		//对数组中的每一项运行给定的函数,返回该函数会返回true的项组成的数组
+		console.log('filterResult');
+		console.log(filterResult);
+		var mapResult=numbers.map(function(item,index,array){
+			return (item * 2)
+		})
+		//对数组中的每一项运行给定的函数,返回该函数会返回true的项组成的数组
+		console.log('mapResult');
+		console.log(mapResult);
+		var reduceResult=numbers.reduce(function(prev,cur,index,array){
+			return (prev * cur)
+		})
+		//迭代数组中的所有项，从数组的第一项开始，逐个遍历到最后一项，然后构建一个最终的返回值
+		console.log('reduceResult');
+		console.log(reduceResult);}
+	{
+		function outer(){
+			inner();
+		}
+		console.clear();
+		function inner() {
+			// alert(inner.caller);
+			console.log(arguments.callee.caller);
+		}
+		outer();
+		console.log(outer.prototype);
+		function sum(num1,num2) {
+			return num1+num2;
+		}
+		function callsum1(num1,num2){
+			return sum.apply(this,arguments);//传入arguments对象
+		}
+		function callsum2(num1,num2){
+			return sum.apply(this,[num1,num2]);//传入数组
+		}
+		console.log(callsum1(10,10));
+		console.log(callsum2(10,10));
+		function callsum(num1,num2){
+			return sum.call(this,num1,num2);
+		}
+		console.log(callsum(10,10));
+		window.color='red';
+		var o={color:'blue'};
+		function sayColor(){
+			console.log(this.color);
+		}
+		sayColor();
+		sayColor.call(this);
+		sayColor.call(window);
+		sayColor.call(o);
+	}
+	var person ={
+		name:'noooo',
+		age:29,
+		job:'software',
+		sayName:function(){
+			console.log(this.name);
+		}
+	}
+	console.log(person);
+</script>
+</body>
+</html>

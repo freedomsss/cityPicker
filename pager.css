@@ -1,0 +1,14 @@
+.pager-box span{
+	width: auto;
+	height: auto;
+	padding: 5px 10px;
+	display: inline-block;
+	border: 1px solid #000;
+	margin: 5px;
+}
+.pager-first-span-disable,.pager-next-span-disable,.pager-last-span-disable{
+	background-color: #dddddd;
+}
+.active{
+	background-color: red;
+}

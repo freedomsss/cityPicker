@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="pager.css">
+</head>
+<body>
+<div class="pager-box">
+</div>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="pager.js"></script>
+<script type="text/javascript">
+	var index=2;
+	var size=20;
+	var divClassName='pager-box';
+	pager(index,size,divClassName);
+	console.log($('.pager-box').children('span.4'));
+	$(document).on('click',".pager-box span",function(){ 　　　　
+		if(this.hasAttribute('pagenum')){
+    　　　　	var num = $(this).attr('pagenum');
+    		console.log(num);
+    		index=num;
+    		pager(index,size,divClassName);
+			$('.pager-box').children('span.pager-index-span').addClass('active');
+　　		}
+  	});
+	$('.pager-box').children('span.pager-index-span').addClass('active');
+	$(document).on('click',".pager-box .pager-pervious-span",function(){ 　　　　
+		if(this.hasAttribute('pagenum')){
+    		// alert($(this).attr('pagenum'));
+			index--;
+			if (index < 0) {
+				index = 0;
+			}
+			pager(index,size,divClassName);
+			$('.pager-box').children('span.pager-index-span').addClass('active');
+			// console.log(index);
+　　		}
+  	});
+  	$(document).on('click',".pager-box .pager-next-span",function(){ 　　　　
+		if(this.hasAttribute('pagenum')){
+    		// alert($(this).attr('pagenum'));
+			index++;
+			console.log(index);
+			if (index > size) {
+				index = size;
+			}
+			pager(index,size,divClassName);
+			$('.pager-box').children('span.pager-index-span').addClass('active');
+			console.log(index);
+　　		}
+  	});
+</script>
+</body>
+</html>

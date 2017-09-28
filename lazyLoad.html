@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>city picker</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		img{
+			display: block;
+			width: 500px;
+			height: 300px;
+			margin: 30px;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/bg-m.png'>
+	<img src="images/loding.gif" data-src='images/bg.png'>
+	<img src="images/loding.gif" data-src='images/codeimg.png'>
+	<img src="images/loding.gif" data-src='images/iphoneIcon.png'>
+	<img src="images/loding.gif" data-src='images/bg02.png'>
+	<img src="images/loding.gif" data-src='images/loginpwd.png'>
+	<img src="images/loding.gif" data-src='images/Logo.png'>
+	<img src="images/loding.gif" data-src='images/successok.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<script type="text/javascript">
+		function lazyLoad() {
+			var images = document.getElementsByTagName('img');
+			var len = images.length;
+			var n = 0;//存储图片加载到的位置，避免每次从第一次开始遍历
+			return function(){
+				var seeHeight = document.documentElement.clientHeight;
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				console.log('seeHeight');
+				// console.log(seeHeight);
+				console.log(seeHeight);
+				console.log('scrollTop');
+				console.log(scrollTop);
+				for (var i = n; i < len; i++) {
+					if (images[i].offsetTop < seeHeight + scrollTop){
+					//比较 image 的 offsetTop 与 seeHeight + scrollTop 的大小，当小于时则说明图片已经出现过在视口中，这时候继续判断图片是否已经替换过，如果没有替换过，则进行替换。
+						console.log('images[i].offsetTop');
+						console.log(images[i].offsetTop);
+						if (images[i].getAttribute('src') === 'images/loding.gif') {
+							images[i].src = images[i].getAttribute('data-src');
+						}
+						n++;
+					}
+				}
+			}
+		}
+		var loadImages = lazyLoad();
+		loadImages();
+		window.addEventListener('scroll',loadImages,false);
+	</script>
+</body>
+</html>
