@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		img{
+			display: block;
+			width: 500px;
+			height: 300px;
+			margin: 30px;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/bg-m.png'>
+	<img src="images/loding.gif" data-src='images/bg.png'>
+	<img src="images/loding.gif" data-src='images/codeimg.png'>
+	<img src="images/loding.gif" data-src='images/iphoneIcon.png'>
+	<img src="images/loding.gif" data-src='images/bg02.png'>
+	<img src="images/loding.gif" data-src='images/loginpwd.png'>
+	<img src="images/loding.gif" data-src='images/Logo.png'>
+	<img src="images/loding.gif" data-src='images/successok.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<img src="images/loding.gif" data-src='images/banner.png'>
+	<script type="text/javascript">
+		function query(selector) {
+			return Array.from(document.querySelectorAll(selector));
+		}
+		var io = new IntersectionObserver(function(items){
+			items.forEach(function(item){
+				var target = item.target;
+				console.log(target);
+				if (target.getAttribute('src') == 'images/loding.gif') {
+					target.src = target.getAttribute('data-src');
+				}
+			})
+		});
+		query('img').forEach(function(item){
+			io.observe(item);
+		});
+	</script>
+	
+</body>
+</html>

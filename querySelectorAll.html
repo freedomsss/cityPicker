@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>querySelectorAll</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.meng{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="all" class="all">  
+	    <i>梦龙小站</i>  
+	    <p class="box">  
+	        <em class="span">梦龙小站</em>  
+	    </p>  
+	    <i class="span">梦龙小站</i>  
+	    <p class="box">  
+	        <em>梦龙小站</em>  
+	        <em>梦龙小站</em>  
+	        <em>梦龙小站</em>  
+	        <em>梦龙小站</em>  
+	        <em>梦龙小站</em>  
+	        <em>梦龙小站</em>  
+	    </p>  
+	</div>  
+	<script type="text/javascript">
+		//获取类名为all的<div>中所有的<i>元素，类似于getElementsByTagName("i")  
+		var i = document.getElementById("all").querySelectorAll("i");  
+		  
+		//获取类名为span的所有元素  
+		var span = document.querySelectorAll(".span");  
+		  
+		//获取所有<p>标签中的所有<em>元素  
+		var em = document.querySelectorAll("p em");  
+		var i, len, emOne;  
+		for(i=0, len = em.length; i<len; i++){  
+		    emOne = em[i];  
+		    //或者 em.item(i);  
+		    emOne.className = "meng";  
+		}
+
+		console.log(i);
+		console.log(span);
+		console.log(em);
+
+	</script>
+
+</body>
+</html>
